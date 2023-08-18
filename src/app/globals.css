@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  --orange-color: rgb(255, 94, 0) 
+}
+
+body{
+  background: linear-gradient(180deg, #6e6a5d, rgb(16, 23, 39));
+}
+
+.mySwiper {
+  padding-bottom: 50px !important;
+}
+
+.swiper-slide {
+  display: flex !important;
+  justify-content: center;
+}
+
+.swiper-button-next,
+.swiper-button-prev
+{
+  color: var(--orange-color) !important;
+  font-size: 50px !important;
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.swiper-pagination-bullet{
+  background-color: var(--orange-color)  !important;
+}
+
+
+.errorandLoading{
+  margin: 50px auto 0 !important;
+}
+
+
+.select .MuiSvgIcon-root{
+  color: white;
+}
+
+.MuiOutlinedInput-root{
+  color: white !important;
+}
+.select fieldset{
+  border: none
+}
+
+
+
+
+

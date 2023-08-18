@@ -1,0 +1,25 @@
+{
+  "name": "my-books",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^6.2.1",
+    "autoprefixer": "^10.4.20",
+    "axios": "^1.5.0",
+    "eslint-config-next": "^15.1.2",
+    "next": "^15.1.2",
+    "postcss": "^8.4.38",
+    "react": "^19.0.0-rc.1",
+    "react-dom": "^19.0.0-rc.1",
+    "swiper": "^11.1.15",
+    "tailwindcss": "^3.4.17"
+  }
+}
