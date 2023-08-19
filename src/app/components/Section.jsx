@@ -8,7 +8,7 @@ import Image from 'next/image'
 
 function Section() {
 
-    const [currentIndex , setCurrentIndex] = useState(0)
+    const [currentIndex, setCurrentIndex] = useState(0)
 
     const images = [
         {
@@ -25,35 +25,21 @@ function Section() {
         },
     ]
 
-
-  useEffect(() => {
-    const id = setInterval(() => {
-      if (currentIndex <= 0) {
-        setCurrentIndex(images.length - 1);
-      } else {
-        setCurrentIndex(currentIndex - 1);
-      }
-
-      
-    }, 4000);
-
-    return () => clearInterval(id)
-    
-}, [currentIndex, images.length]);
-
-console.log(currentIndex);
-
-const backgroundImageStyle = {
-    backgroundImage: `url(${images[currentIndex].url})`,
-  };
-
+    useEffect(() => {
+        const id = setInterval(() => {
+            if (currentIndex <= 0) {
+                setCurrentIndex(images.length - 1);
+            } else {
+                setCurrentIndex(currentIndex - 1);
+            }
+        }, 4000);
+        return () => clearInterval(id)
+    }, [currentIndex, images.length]);
 
 
     return (
-        <div className='max-w-[1500px] mx-auto h-[400px] md:h-[600px] relative '> 
-
-            <Image className='transition-all duration-700' src={images[currentIndex].url} fill sizes='100vw' alt='Images'/>
-
+        <div className='max-w-[1500px] mx-auto h-[400px] md:h-[600px] relative '>
+            <Image className='transition-all duration-700' src={images[currentIndex].url} fill sizes='100vw' alt='Images' />
         </div>
     )
 }

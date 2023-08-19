@@ -1,8 +1,6 @@
 "use client"
-import Image from 'next/image'
 import Link from 'next/link'
 import React, { useState } from 'react'
-import Logo from "../../../public/images/logo/Logo.png"
 
 function Header() {
 
@@ -36,11 +34,10 @@ function Header() {
             <div className="container mx-auto flex justify-between items-center flex-wrap px-3">
 
                 <Link className='flex items-center' href="/">
-                    {/* <Image width={42} height={20} sizes='(max-width: 992px) 100vw' src={Logo} /> */}
                     <span className='font-bold text-3xl text-orange-300'>Logo</span>
                 </Link>
 
-                <div className={`bg-gradient-to-r md:bg-none md:w-auto  justify-center absolute md:static left-0 w-full -z-10 md:z-0 transition-all duration-500  ${open ? "flex mt-12 md:mt-0 top-7" : "flex -top-60 md:opacity-100"}`}>
+                <div className={`bg-gradient-to-r md:bg-none md:w-auto justify-center absolute md:static left-0 w-full -z-10 md:z-0 transition-all duration-500  ${open ? "flex mt-12 md:mt-0 top-7" : "flex -top-60 md:opacity-100"}`}>
                     <ul className='block md:flex'>
                         {ul.map((item) => (
                             <li className='md:mx-5 my-8 text-center md:my-0 text-lg text-orange-500 hover:text-orange-700 transition-all font-semibold ' key={item.id}>
