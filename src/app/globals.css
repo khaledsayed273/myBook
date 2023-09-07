@@ -40,6 +40,10 @@ body{
 .select .MuiSvgIcon-root{
   color: white;
 }
+
+.MuiOutlinedInput-root{
+  color: white;
+}
 .select fieldset{
   border: none
 }
