@@ -1,4 +1,5 @@
-import Section from "./components/Section";
+import Aside from "../components/Aside";
+import Section from "../components/Section";
 
 export const metadata = {
   title: 'Create Next App',
@@ -9,6 +10,7 @@ export default function Home() {
   return (
     <>
       <Section />
+      <Aside />
     </>
   )
 }
