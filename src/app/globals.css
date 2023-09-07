@@ -42,7 +42,7 @@ body{
 }
 
 .MuiOutlinedInput-root{
-  color: white;
+  color: white !important;
 }
 .select fieldset{
   border: none
