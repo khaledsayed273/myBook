@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 
 function NavAside() {
 
-    const [type, setType] = useState(10)
+    const [type, setType] = useState("0")
     const [collapse, setCollapse] = useState(false)
     
     const handleChange = (e) => {
@@ -24,6 +24,7 @@ function NavAside() {
                 className={`select w-[150px] h-[38px] text-white border rounded-md outline-none border-orange-700`}
                 id="select"
             >
+                <MenuItem value={"0"}>الكل</MenuItem>
                 <MenuItem value={"10"}>رومانسي</MenuItem>
                 <MenuItem value={"20"}>علمي</MenuItem>
                 <MenuItem value={"30"}>علم نفس</MenuItem>

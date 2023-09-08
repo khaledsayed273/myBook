@@ -90,18 +90,22 @@ function Aside() {
                     Suggestions for you
                 </h1>
                 <SwiperComponent data={data} />
-                <NavAside/>
+                <NavAside />
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10  mt-20">
                     {data.length > 0 ? (
                         data.map((item) => (
                             <div key={item.id} className="flex justify-center my-5">
-                                <Link className='flex justify-center duration-500 hover:scale-110' href={`books/${item.link}`}>
-                                    <div className='bg-orange-900 flex flex-col items-center w-[220px] overflow-hidden rounded-2xl'>
-                                        <div className='relative w-full h-[248px] '>
+                                <Link className="duration-500 hover:scale-110" href={`books/${item.link}`}>
+                                    <div className='relative w-[220px] overflow-hidden rounded-2xl group'>
+                                        <div className='relative w-full h-[290px] '>
                                             <Image loading='lazy' sizes='(max-width: 992px) 100vw' fill src={item.image} alt="image" />
                                         </div>
-                                        <p className='p-2 text-gray-50 capitalize'>{item.title}</p>
-                                        <RatingSwiper rate={item.rate} />
+                                        <div className='absolute z-10 -bottom-7 group-hover:bottom-0 flex flex-col items-center transition-all duration-500 left-0 right-0 bg-orange-900'>
+                                            <p className='p-2 text-gray-50 capitalize'>{item.title}</p>
+                                            <RatingSwiper rate={item.rate} />
+                                        </div>
+                                        <div className="absolute top-0 bottom-0 w-full transition-all duration-500 group-hover:bg-black/60  -z-5">
+                                        </div>
                                     </div>
                                 </Link>
                             </div>

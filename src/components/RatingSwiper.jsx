@@ -2,12 +2,12 @@
 import { Rating } from '@mui/material';
 import React from 'react'
 
-function RatingSwiper({ rate }) {
+function RatingSwiper({ rate , size }) {
 
     return (
         <Rating
             readOnly
-            sx={{ fontSize: "20px", marginBottom: "7px" }}
+            sx={{ fontSize: size ? size : "20px", marginBottom: "7px" }}
             name="read-only"
             value={rate}
 

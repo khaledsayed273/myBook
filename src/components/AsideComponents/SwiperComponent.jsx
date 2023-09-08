@@ -43,12 +43,16 @@ function SwiperComponent({ data }) {
                 data.map((item) => (
                     <SwiperSlide className="py-11 " key={item.id}>
                         <Link className="duration-500 hover:scale-110" href={`books/${item.link}`}>
-                            <div className='bg-orange-900 flex flex-col items-center w-[220px] overflow-hidden rounded-2xl'>
-                                <div className='relative w-full h-[248px] '>
+                            <div className='relative w-[220px] overflow-hidden rounded-2xl group'>
+                                <div className='relative w-full h-[290px] '>
                                     <Image loading='lazy' sizes='(max-width: 992px) 100vw' fill src={item.image} alt="image" />
                                 </div>
-                                <p className='p-2 text-gray-50 capitalize'>{item.title}</p>
-                                <RatingSwiper rate={item.rate} />
+                                <div className='absolute z-10 -bottom-7 group-hover:bottom-0 flex flex-col items-center transition-all duration-500 left-0 right-0 bg-orange-900'>
+                                    <p className='p-2 text-gray-50 capitalize'>{item.title}</p>
+                                    <RatingSwiper rate={item.rate} />
+                                </div>
+                                <div className="absolute top-0 bottom-0 w-full transition-all duration-500 group-hover:bg-black/60  -z-5">
+                                </div>
                             </div>
                         </Link>
                     </SwiperSlide>
