@@ -12,7 +12,6 @@ export const metadata = {
 }
 
 function page({ params }) {
-  console.log(params.id);
 
   const data = {
     img: img,
@@ -125,21 +124,12 @@ function page({ params }) {
           </div>
 
 
-
           <div className='mt-16'>
             <h1 className="text-3xl text-orange-600 font-bold capitalize">about author</h1>
             <p className='text-white md:text-lg mt-5 leading-10'>{data.author.about}</p>
           </div>
 
           <Comments data={data}/>
-
-
-
-
-
-
-
-
 
         </div>
       </div>
