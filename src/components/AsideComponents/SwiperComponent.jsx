@@ -82,7 +82,7 @@ function SwiperComponent({ baseUrl }) {
                     relatedBooks.length > 0 ? (
                         relatedBooks.map((item) => (
                             <SwiperSlide className="py-11" key={item._id}>
-                                <Link className="duration-500 hover:scale-110" href={`books/${item.link}`}>
+                                <Link className="duration-500 hover:scale-110" href={`books/${item._id}`}>
                                     <div className='relative w-[220px] overflow-hidden rounded-2xl group'>
                                         <div className='relative w-full h-[290px] '>
                                             <Image loading='lazy' sizes='(max-width: 992px) 100vw' fill src={item.image} alt="image" />

@@ -5,11 +5,33 @@ import RatingComponent from './components/RatingComponent';
 import RatingSwiper from '@/components/RatingSwiper';
 import Comments from './components/Comments';
 
-export const metadata = {
-  title: "Book"
+export async function generateMetadata({ params }) {
+
+  const req = await fetch(`${baseUrl}/api/books/book/${params.id}`).then(res =>
+    res.json()
+  ).catch(e =>
+    e
+  )
+
+  return {
+    title: req.data.title,
+    description: req.data.description
+  }
 }
 
-function page({ params }) {
+const baseUrl = process.env.domain
+const getBookDetails = async (id) => {
+  const req = await fetch(`${baseUrl}/api/books/book/${id}`, { cache: 'no-store' }).then(res =>
+    res.json()
+  ).catch(e =>
+    e
+  )
+  return req
+}
+
+async function bookOne({ params }) {
+  const resbook = await getBookDetails(params.id)
+  const book = await resbook.data
   const data = {
     img: img,
     title: "love store",
@@ -65,48 +87,48 @@ function page({ params }) {
 
   return (
     <div className='container mx-auto'>
-      <h1 className='text-center text-4xl font-bold my-10 text-orange-700'>{params.id}</h1>
+      <h1 className='text-center text-4xl font-bold my-10 text-orange-700'>{book.title}</h1>
       <div className='px-3'>
         <div className='flex my-4 flex-col items-center'>
           <div className='relative h-[300px] w-[250px] lg:h-[350px] lg:w-[300px] mb-3'>
-            <Image src={data.img} fill className='rounded-3xl' alt='image' />
+            <Image src={book.image} fill className='rounded-3xl' alt='image' />
           </div>
-          <RatingSwiper rate={data.rate} size={"27px"} />
+          <RatingSwiper rate={book.rate} size={"27px"} />
         </div>
         <div className='flex flex-col justify-between  my-4  md:px-9'>
           <div className='text-slate-100'>
             <h2 className="text-3xl mb-5  text-orange-600 font-bold " >About</h2>
-            <p className='leading-8'>{data.description}</p>
+            <p className='leading-8'>{book.description}</p>
           </div>
 
           <div className='flex flex-col mt-5 capitalize'>
             <div className='flex items-center my-3'>
               <h3 className='text-xl font-bold text-orange-600'>author :</h3>
-              <h3 className='ms-2  text-lg text-white'>{data.author.name}</h3>
+              <h3 className='ms-2  text-lg text-white'>{book.author.name}</h3>
             </div>
             <div className='flex items-center my-3'>
               <h3 className='text-xl font-bold text-orange-600'>views :</h3>
-              <h3 className='ms-2  text-lg text-white'>{data.views}</h3>
+              <h3 className='ms-2  text-lg text-white'>{book.views}</h3>
             </div>
             <div className='flex items-center my-3'>
               <h3 className='text-xl font-bold text-orange-600'>language :</h3>
-              <h3 className='ms-2  text-lg text-white'>{data.language}</h3>
+              <h3 className='ms-2  text-lg text-white'>{book.language}</h3>
             </div>
             <div className='flex items-center my-3'>
               <h3 className='text-xl font-bold text-orange-600'>downloads :</h3>
-              <h3 className='ms-2  text-lg text-white'>{data.downloads}</h3>
+              <h3 className='ms-2  text-lg text-white'>{book.downloads}</h3>
             </div>
             <div className='flex items-center my-3'>
               <h3 className='text-xl font-bold text-orange-600'>type :</h3>
-              <h3 className='ms-2  text-lg text-white'>{data.type}</h3>
+              <h3 className='ms-2  text-lg text-white'>{book.type}</h3>
             </div>
             <div className='flex items-center my-3'>
               <h3 className='text-xl font-bold text-orange-600'>size :</h3>
-              <h3 className='ms-2  text-lg text-white'>{data.size} mb</h3>
+              <h3 className='ms-2  text-lg text-white'>{book.size} mb</h3>
             </div>
             <div className='flex items-center my-3'>
               <h3 className='text-xl font-bold text-orange-600'>pages :</h3>
-              <h3 className='ms-2  text-lg text-white'>{data.pages}</h3>
+              <h3 className='ms-2  text-lg text-white'>{book.pages}</h3>
             </div>
           </div>
 
@@ -118,10 +140,10 @@ function page({ params }) {
 
           <div className='mt-16'>
             <h1 className="text-3xl text-orange-600 font-bold capitalize">about author</h1>
-            <p className='text-white md:text-lg mt-5 leading-10'>{data.author.about}</p>
+            <p className='text-white md:text-lg mt-5 leading-10'>{book.author.about}</p>
           </div>
 
-          <Comments data={data}/>
+          <Comments data={data} />
 
         </div>
       </div>
@@ -129,4 +151,4 @@ function page({ params }) {
   )
 }
 
-export default page
+export default bookOne

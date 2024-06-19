@@ -10,10 +10,10 @@ function Comments({ data }) {
             <AddComment />
 
             {data.comments.map((item) => (
-                <article key={item.id} className="p-6 text-base my-5 bg-white rounded-lg dark:bg-stone-900">
+                <article key={item.id} className="p-6 text-base my-5 bg-stone-900 rounded-lg ">
                     <footer className="flex justify-between items-center mb-2">
                         <div className="flex items-center">
-                            <div className="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white font-semibold">
+                            <div className="inline-flex items-center me-3 text-sm text-white font-semibold">
                                 <Image
                                     width={6}
                                     height={6}

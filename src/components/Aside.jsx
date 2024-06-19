@@ -9,7 +9,7 @@ const baseUrl = process.env.domain
 
 const getAllBooks = async () => {
 
-    const req = await fetch(`${baseUrl}/api/books/all-books`).then(res =>
+    const req = await fetch(`${baseUrl}/api/books/all-books` , { cache: 'no-store' }).then(res =>
         res.json()
     ).catch(e =>
         e
@@ -33,7 +33,7 @@ async function Aside() {
                         allBooks?.data?.length > 0 ? (
                             allBooks?.data?.map((item) => (
                                 <div key={item._id} className="flex justify-center my-5">
-                                    <Link className="duration-500 hover:scale-110" href={`books/${item.link}`}>
+                                    <Link className="duration-500 hover:scale-110" href={`books/${item._id}`}>
                                         <div className='relative w-[220px] overflow-hidden rounded-2xl group'>
                                             <div className='relative w-full h-[290px] '>
                                                 <Image loading='lazy' sizes='(max-width: 992px) 100vw' fill src={item.image} alt="image" />
@@ -50,25 +50,7 @@ async function Aside() {
                             ))
                         ) : (<h3>there is no data</h3>)
                     )}
-                    {/* {data.length > 0 ? (
-                        data.map((item) => (
-                            <div key={item.id} className="flex justify-center my-5">
-                                <Link className="duration-500 hover:scale-110" href={`books/${item.link}`}>
-                                    <div className='relative w-[220px] overflow-hidden rounded-2xl group'>
-                                        <div className='relative w-full h-[290px] '>
-                                            <Image loading='lazy' sizes='(max-width: 992px) 100vw' fill src={item.image} alt="image" />
-                                        </div>
-                                        <div className='absolute z-10 -bottom-7 group-hover:bottom-0 flex flex-col items-center transition-all duration-500 left-0 right-0 bg-orange-900'>
-                                            <p className='p-2 text-gray-50 capitalize'>{item.title}</p>
-                                            <RatingSwiper rate={item.rate} />
-                                        </div>
-                                        <div className="absolute top-0 bottom-0 w-full transition-all duration-500 group-hover:bg-black/60  -z-5">
-                                        </div>
-                                    </div>
-                                </Link>
-                            </div>
-                        ))
-                    ) : "loading"} */}
+
                 </div>
             </div>
         </aside>

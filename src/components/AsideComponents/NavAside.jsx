@@ -62,7 +62,7 @@ function NavAside({ baseUrl }) {
                     <MenuItem className='capitalize font-semibold' value={"0"}>الكل</MenuItem>
                     {allTypes.map((item => (
 
-                    <MenuItem className='capitalize font-semibold' value={`${item.type}`}>{item.type}</MenuItem>
+                    <MenuItem key={item._id} className='capitalize font-semibold' value={`${item.type}`}>{item.type}</MenuItem>
                     )))}
                 </Select>
             ) : (<div></div>)}
