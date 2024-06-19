@@ -2,7 +2,7 @@
 import { Rating } from '@mui/material';
 import React from 'react'
 
-function RatingSwiper({ rate , size }) {
+function RatingSwiper({ rate, size }) {
 
     return (
         <Rating

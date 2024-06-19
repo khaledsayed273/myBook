@@ -36,6 +36,10 @@ body{
 }
 
 
+.errorandLoading{
+  margin: 50px auto 0 !important;
+}
+
 
 .select .MuiSvgIcon-root{
   color: white;

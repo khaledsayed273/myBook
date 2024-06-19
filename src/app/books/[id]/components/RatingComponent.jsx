@@ -2,9 +2,6 @@
 import { Rating } from '@mui/material';
 import React, { useState } from 'react'
 
-
-
-
 function RatingComponent() {
 
   const [value, setValue] = useState(2);
