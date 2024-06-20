@@ -1,11 +1,12 @@
 "use client"
 import { MenuItem, Select } from '@mui/material'
 import React, { useState, useEffect } from 'react'
-import axios from "axios"
+import { useRouter, useSearchParams } from 'next/navigation'
+import { useCallback } from 'react'
 
 function NavAside({ baseUrl }) {
+    const [type, setType] = useState(" ")
 
-    const [type, setType] = useState("0")
     const [collapse, setCollapse] = useState(false)
 
     const handleChange = (e) => {
@@ -15,8 +16,6 @@ function NavAside({ baseUrl }) {
     const handleCollapse = () => {
         setCollapse(!collapse)
     }
-
-
 
     const [allTypes, setAllTypes] = useState([])
     const [status, setStatus] = useState(false)
@@ -38,19 +37,17 @@ function NavAside({ baseUrl }) {
         getAllBooks()
     }, [])
 
-    // const [data , setData] = useState([])
+    const router = useRouter()
+    const searchParams = useSearchParams()
 
-    // useEffect(() => {
-    //     axios.get("localhost:3001").then(data => {
-    //         setData(data.data)
-    //     })
-    // },[])
-
-    // console.log(data);
+    const handleSetParams = useCallback((type) => {
+        const query = new URLSearchParams(searchParams)
+        query.set("category" , type)
+        router.push(`?category=${query.get("category")}`)
+    }, [])
 
     return (
         <nav className='flex items-center justify-between xl:px-16 mt-32'>
-
             {status ? (
                 <Select
                     value={type}
@@ -58,11 +55,10 @@ function NavAside({ baseUrl }) {
                     className={`select w-[150px] h-[38px] text-white border rounded-md outline-none border-orange-700`}
                     id="select"
                 >
-
-                    <MenuItem className='capitalize font-semibold' value={"0"}>الكل</MenuItem>
+                    <MenuItem onClick={() => router.push(`/`)} className='capitalize font-semibold' value={" "}>الكل</MenuItem>
                     {allTypes.map((item => (
 
-                    <MenuItem key={item._id} className='capitalize font-semibold' value={`${item.type}`}>{item.type}</MenuItem>
+                        <MenuItem onClick={() => handleSetParams(item.type)} key={item._id} className='capitalize font-semibold' value={`${item.type}`}>{item.type}</MenuItem>
                     )))}
                 </Select>
             ) : (<div></div>)}

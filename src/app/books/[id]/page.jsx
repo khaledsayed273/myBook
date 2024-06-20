@@ -1,9 +1,11 @@
 import React from 'react'
 import img from "../../../../public/images/books/download.jpg"
 import Image from 'next/image';
-import RatingComponent from './components/RatingComponent';
+// import RatingComponent from './components/RatingComponent';
 import RatingSwiper from '@/components/RatingSwiper';
 import Comments from './components/Comments';
+import { notFound } from 'next/navigation';
+import NotFoundBook from './components/not-Found';
 
 export async function generateMetadata({ params }) {
 
@@ -14,8 +16,8 @@ export async function generateMetadata({ params }) {
   )
 
   return {
-    title: req.data.title,
-    description: req.data.description
+    title: req?.data?.title,
+    description: req?.data?.description
   }
 }
 
@@ -86,68 +88,73 @@ async function bookOne({ params }) {
   }
 
   return (
-    <div className='container mx-auto'>
-      <h1 className='text-center text-4xl font-bold my-10 text-orange-700'>{book.title}</h1>
-      <div className='px-3'>
-        <div className='flex my-4 flex-col items-center'>
-          <div className='relative h-[300px] w-[250px] lg:h-[350px] lg:w-[300px] mb-3'>
-            <Image src={book.image} fill className='rounded-3xl' alt='image' />
+    resbook?.status ? (
+      <div className='container mx-auto'>
+        <h1 className='text-center text-4xl font-bold my-10 text-orange-700'>{book.title}</h1>
+        <div className='px-3'>
+          <div className='flex my-4 flex-col items-center'>
+            <div className='relative h-[300px] w-[250px] lg:h-[350px] lg:w-[300px] mb-3'>
+              <Image src={book.image} fill className='rounded-3xl' alt='image' />
+            </div>
+            <RatingSwiper rate={book.rate} size={"27px"} />
           </div>
-          <RatingSwiper rate={book.rate} size={"27px"} />
-        </div>
-        <div className='flex flex-col justify-between  my-4  md:px-9'>
-          <div className='text-slate-100'>
-            <h2 className="text-3xl mb-5  text-orange-600 font-bold " >About</h2>
-            <p className='leading-8'>{book.description}</p>
+          <div className='flex flex-col justify-between  my-4  md:px-9'>
+            <div className='text-slate-100'>
+              <h2 className="text-3xl mb-5  text-orange-600 font-bold " >About</h2>
+              <p className='leading-8'>{book.description}</p>
+            </div>
+
+            <div className='flex flex-col mt-5 capitalize'>
+              <div className='flex items-center my-3'>
+                <h3 className='text-xl font-bold text-orange-600'>author :</h3>
+                <h3 className='ms-2  text-lg text-white'>{book.author.name}</h3>
+              </div>
+              <div className='flex items-center my-3'>
+                <h3 className='text-xl font-bold text-orange-600'>views :</h3>
+                <h3 className='ms-2  text-lg text-white'>{book.views}</h3>
+              </div>
+              <div className='flex items-center my-3'>
+                <h3 className='text-xl font-bold text-orange-600'>language :</h3>
+                <h3 className='ms-2  text-lg text-white'>{book.language}</h3>
+              </div>
+              <div className='flex items-center my-3'>
+                <h3 className='text-xl font-bold text-orange-600'>downloads :</h3>
+                <h3 className='ms-2  text-lg text-white'>{book.downloads}</h3>
+              </div>
+              <div className='flex items-center my-3'>
+                <h3 className='text-xl font-bold text-orange-600'>type :</h3>
+                <h3 className='ms-2  text-lg text-white'>{book.type}</h3>
+              </div>
+              <div className='flex items-center my-3'>
+                <h3 className='text-xl font-bold text-orange-600'>size :</h3>
+                <h3 className='ms-2  text-lg text-white'>{book.size} mb</h3>
+              </div>
+              <div className='flex items-center my-3'>
+                <h3 className='text-xl font-bold text-orange-600'>pages :</h3>
+                <h3 className='ms-2  text-lg text-white'>{book.pages}</h3>
+              </div>
+            </div>
+
+            <div className='flex flex-wrap mt-5'>
+              <button className='me-2 rounded-md w-[120px] text-slate-50 font-bold bg-lime-600 px-3 py-2 hover:opacity-70'>Read</button>
+              <button className='mx-2 rounded-md w-[120px] text-slate-50 font-bold bg-cyan-500 px-3 py-2 hover:opacity-70'>Download</button>
+            </div>
+
+
+            <div className='mt-16'>
+              <h1 className="text-3xl text-orange-600 font-bold capitalize">about author</h1>
+              <p className='text-white md:text-lg mt-5 leading-10'>{book.author.about}</p>
+            </div>
+
+            <Comments data={data} />
+
           </div>
-
-          <div className='flex flex-col mt-5 capitalize'>
-            <div className='flex items-center my-3'>
-              <h3 className='text-xl font-bold text-orange-600'>author :</h3>
-              <h3 className='ms-2  text-lg text-white'>{book.author.name}</h3>
-            </div>
-            <div className='flex items-center my-3'>
-              <h3 className='text-xl font-bold text-orange-600'>views :</h3>
-              <h3 className='ms-2  text-lg text-white'>{book.views}</h3>
-            </div>
-            <div className='flex items-center my-3'>
-              <h3 className='text-xl font-bold text-orange-600'>language :</h3>
-              <h3 className='ms-2  text-lg text-white'>{book.language}</h3>
-            </div>
-            <div className='flex items-center my-3'>
-              <h3 className='text-xl font-bold text-orange-600'>downloads :</h3>
-              <h3 className='ms-2  text-lg text-white'>{book.downloads}</h3>
-            </div>
-            <div className='flex items-center my-3'>
-              <h3 className='text-xl font-bold text-orange-600'>type :</h3>
-              <h3 className='ms-2  text-lg text-white'>{book.type}</h3>
-            </div>
-            <div className='flex items-center my-3'>
-              <h3 className='text-xl font-bold text-orange-600'>size :</h3>
-              <h3 className='ms-2  text-lg text-white'>{book.size} mb</h3>
-            </div>
-            <div className='flex items-center my-3'>
-              <h3 className='text-xl font-bold text-orange-600'>pages :</h3>
-              <h3 className='ms-2  text-lg text-white'>{book.pages}</h3>
-            </div>
-          </div>
-
-          <div className='flex flex-wrap mt-5'>
-            <button className='me-2 rounded-md w-[120px] text-slate-50 font-bold bg-lime-600 px-3 py-2 hover:opacity-70'>Read</button>
-            <button className='mx-2 rounded-md w-[120px] text-slate-50 font-bold bg-cyan-500 px-3 py-2 hover:opacity-70'>Download</button>
-          </div>
-
-
-          <div className='mt-16'>
-            <h1 className="text-3xl text-orange-600 font-bold capitalize">about author</h1>
-            <p className='text-white md:text-lg mt-5 leading-10'>{book.author.about}</p>
-          </div>
-
-          <Comments data={data} />
-
         </div>
       </div>
-    </div>
+    ) : (
+      <NotFoundBook resbook={resbook} />
+    )
+
   )
 }
 

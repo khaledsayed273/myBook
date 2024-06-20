@@ -6,6 +6,7 @@ function RatingSwiper({ rate, size }) {
 
     return (
         <Rating
+        
             readOnly
             sx={{ fontSize: size ? size : "20px", marginBottom: "7px" }}
             name="read-only"

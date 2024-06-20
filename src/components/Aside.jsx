@@ -2,14 +2,18 @@ import Image from 'next/image'
 import React from 'react'
 import Link from 'next/link'
 import SwiperComponent from './AsideComponents/SwiperComponent';
-import RatingSwiper from './RatingSwiper'
 import NavAside from './AsideComponents/NavAside'
+import dynamic from 'next/dynamic';
+const RatingSwiper = dynamic(() => import('./RatingSwiper'), {
+    ssr: false,
+})
+
 
 const baseUrl = process.env.domain
 
-const getAllBooks = async () => {
+const getAllBooks = async (category) => {
 
-    const req = await fetch(`${baseUrl}/api/books/all-books` , { cache: 'no-store' }).then(res =>
+    const req = await fetch(`${baseUrl}/api/books/all-books?${category && `type=${category}`}&limit=16&page=1`, { cache: 'no-store' }).then(res =>
         res.json()
     ).catch(e =>
         e
@@ -18,8 +22,9 @@ const getAllBooks = async () => {
 }
 
 // linear-gradient(135deg, #001f3f, #1a0033)
-async function Aside() {
-    const allBooks = await getAllBooks()
+async function aside({ searchParams }) {
+    const { category } = searchParams
+    const allBooks = await getAllBooks(category)
     return (
         <aside className='from-stone-600 to-slate-900 p-1'>
             <div className="container mx-auto px-5 md:px-4 mt-10">
@@ -28,33 +33,36 @@ async function Aside() {
                 </h1>
                 <SwiperComponent baseUrl={baseUrl} data={allBooks?.data} />
                 <NavAside baseUrl={baseUrl} />
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10  mt-20">
-                    {allBooks.status && (
-                        allBooks?.data?.length > 0 ? (
-                            allBooks?.data?.map((item) => (
-                                <div key={item._id} className="flex justify-center my-5">
-                                    <Link className="duration-500 hover:scale-110" href={`books/${item._id}`}>
-                                        <div className='relative w-[220px] overflow-hidden rounded-2xl group'>
-                                            <div className='relative w-full h-[290px] '>
-                                                <Image loading='lazy' sizes='(max-width: 992px) 100vw' fill src={item.image} alt="image" />
+                {allBooks.status && (
+                    allBooks?.data?.length > 0 ? (
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10  mt-20">
+                            {
+                                allBooks?.data?.map((item) => (
+                                    <div key={item._id} className="flex justify-center my-5">
+                                        <Link className="duration-500 hover:scale-110" href={`books/${item._id}`}>
+                                            <div className='relative w-[220px] overflow-hidden rounded-2xl group'>
+                                                <div className='relative w-full h-[290px] '>
+                                                    <Image loading='lazy' sizes='(max-width: 992px) 100vw' fill src={item.image} alt="image" />
+                                                </div>
+                                                <div className='absolute z-10 -bottom-7 group-hover:bottom-0 flex flex-col items-center transition-all duration-500 left-0 right-0 bg-orange-900'>
+                                                    <p className='p-2 text-gray-50 capitalize'>{item.title}</p>
+                                                    <RatingSwiper rate={item.rate} />
+                                                </div>
+                                                <div className="absolute top-0 bottom-0 w-full transition-all duration-500 group-hover:bg-black/60  -z-5">
+                                                </div>
                                             </div>
-                                            <div className='absolute z-10 -bottom-7 group-hover:bottom-0 flex flex-col items-center transition-all duration-500 left-0 right-0 bg-orange-900'>
-                                                <p className='p-2 text-gray-50 capitalize'>{item.title}</p>
-                                                <RatingSwiper rate={item.rate} />
-                                            </div>
-                                            <div className="absolute top-0 bottom-0 w-full transition-all duration-500 group-hover:bg-black/60  -z-5">
-                                            </div>
-                                        </div>
-                                    </Link>
-                                </div>
-                            ))
-                        ) : (<h3>there is no data</h3>)
-                    )}
+                                        </Link>
+                                    </div>
+                                ))
+                            }
+                        </div>
 
-                </div>
+                    ) : (<h3 className='text-center my-24 text-xl capitalize font-semibold text-orange-400'>there is no books</h3>)
+                )}
+
             </div>
         </aside>
     )
 }
 
-export default Aside
+export default aside
