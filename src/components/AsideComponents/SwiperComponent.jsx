@@ -1,5 +1,4 @@
 "use client"
-
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
@@ -21,7 +20,7 @@ function SwiperComponent({ baseUrl }) {
     const getAllBooks = async () => {
         setLoading(true)
 
-        const req = await fetch(`${baseUrl}/api/books/all-books`).then(res =>
+        const req = await fetch(`${baseUrl}/api/v1/books/all-books`).then(res =>
             res.json()
         ).then((res => {
             setStatus(res.status)

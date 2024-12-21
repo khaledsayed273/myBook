@@ -21,7 +21,7 @@ function NavAside({ baseUrl }) {
     const [status, setStatus] = useState(false)
 
     const getAllBooks = async () => {
-        const req = await fetch(`${baseUrl}/api/all-types`).then(res =>
+        const req = await fetch(`${baseUrl}/api/v1/all-types`).then(res =>
             res.json()
         ).then((res => {
             setStatus(res.status)
