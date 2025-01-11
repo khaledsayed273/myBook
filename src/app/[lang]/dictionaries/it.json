@@ -1,0 +1,41 @@
+{
+    "navBar": {
+        "home": "home",
+        "categories": "categorie",
+        "authors": "autori",
+        "reviews": "recensioni",
+        "trending": "tendenze",
+        "search": "cerca"
+    },
+    "home": {
+        "header": {
+            "title": "trova la tua prossima avventura",
+            "descruption": "esplora milioni di libri di autori best-seller e voci emergenti.",
+            "publish_your_own_book": "pubblica il tuo libro"
+        },
+        "slider": {
+            "suggest": "libri suggeriti"
+        },
+        "new_releases": "nuove uscite",
+        "popular_authors": "autori popolari",
+        "view_all": "vedi tutto",
+        "books": "libri"
+    },
+    "book_details": {
+        "about": "sul libro",
+        "author": "autore",
+        "views": "visualizzazioni",
+        "language": "lingua",
+        "downloads": "download",
+        "type": "tipo",
+        "size": "dimensione",
+        "pages":"pagine",
+        "published_date": "data di pubblicazione",
+        "about_the_author": "sull'autore",
+        "reviews": "recensioni",
+        "write_a_review": "scrivi una recensione",
+        "load_more_reviews": "carica altre recensioni",
+        "read": "leggi ora",
+        "add_to_wishlist": "aggiungi alla lista dei desideri"
+    }
+}

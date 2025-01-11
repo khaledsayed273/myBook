@@ -1,0 +1,41 @@
+{
+    "navBar": {
+        "home": "首页",
+        "categories": "分类",
+        "authors": "作者",
+        "reviews": "评论",
+        "trending": "趋势",
+        "search": "搜索"
+    },
+    "home": {
+        "header": {
+            "title": "找到你的下一次冒险",
+            "descruption": "探索来自畅销书作者和新兴声音的数百万本书籍。",
+            "publish_your_own_book": "发布你自己的书籍"
+        },
+        "slider": {
+            "suggest": "推荐书籍"
+        },
+        "new_releases": "新发布",
+        "popular_authors": "受欢迎的作者",
+        "view_all": "查看全部",
+        "books": "书籍"
+    },
+    "book_details": {
+        "about": "关于这本书",
+        "author": "作者",
+        "views": "浏览量",
+        "language": "语言",
+        "downloads": "下载",
+        "type": "类型",
+        "size": "大小",
+        "pages": "页数",
+        "published_date": "发布日期",
+        "about_the_author": "关于作者",
+        "reviews": "评论",
+        "write_a_review": "写评论",
+        "load_more_reviews": "加载更多评论",
+        "read": "立即阅读",
+        "add_to_wishlist": "添加到愿望清单"
+    }
+}

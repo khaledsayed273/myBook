@@ -1,12 +1,9 @@
 'use client' 
- 
 import { useEffect } from 'react'
- 
 export default function Error({ error, reset }) {
   useEffect(() => {
     console.error(error)
   }, [error])
- 
   return (
     <div className='flex flex-col justify-center items-center h-[90vh]'>
       <h2 className='text-white text-2xl mb-5'>Something went wrong!</h2>

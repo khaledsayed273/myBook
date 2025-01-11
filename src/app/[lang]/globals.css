@@ -6,11 +6,16 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
-  --orange-color: rgb(255, 94, 0) 
+  --blue-color: #60a5fa
+}
+
+html{
+  overflow-x: hidden;
 }
 
 body{
-  background: linear-gradient(180deg, #6e6a5d, rgb(16, 23, 39));
+  background: #0a0a0a;
+  overflow-x: hidden !important;
 }
 
 .mySwiper {
@@ -25,14 +30,11 @@ body{
 .swiper-button-next,
 .swiper-button-prev
 {
-  color: var(--orange-color) !important;
-  font-size: 50px !important;
-  width: 20px !important;
-  height: 20px !important;
+  display: none !important;
 }
 
 .swiper-pagination-bullet{
-  background-color: var(--orange-color)  !important;
+  background-color: var(--blue-color)  !important;
 }
 
 

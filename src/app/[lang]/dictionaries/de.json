@@ -1,0 +1,41 @@
+{
+    "navBar": {
+        "home": "Startseite",
+        "categories": "Kategorien",
+        "authors": "Autoren",
+        "reviews": "Bewertungen",
+        "trending": "Trendig",
+        "search": "Suche"
+    },
+    "home": {
+        "header": {
+            "title": "Finde dein nächstes Abenteuer",
+            "descruption": "Entdecke Millionen von Büchern von Bestsellerautoren und aufstrebenden Stimmen.",
+            "publish_your_own_book": "Veröffentliche dein eigenes Buch"
+        },
+        "slider": {
+            "suggest": "vorgeschlagene Bücher"
+        },
+        "new_releases": "Neuerscheinungen",
+        "popular_authors": "Beliebte Autoren",
+        "view_all": "Alle anzeigen",
+        "books": "Bücher"
+    },
+    "book_details": {
+        "about": "Über das Buch",
+        "author": "Autor",
+        "views": "Ansichten",
+        "language": "Sprache",
+        "downloads": "Downloads",
+        "type": "Typ",
+        "size": "Größe",
+        "pages":"Seiten",
+        "published_date": "Veröffentlichungsdatum",
+        "about_the_author": "Über den Autor",
+        "reviews": "Bewertungen",
+        "write_a_review": "Bewertung schreiben",
+        "load_more_reviews": "Mehr Bewertungen laden",
+        "read": "Jetzt lesen",
+        "add_to_wishlist": "Zur Wunschliste hinzufügen"
+    }
+}

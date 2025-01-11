@@ -4,12 +4,15 @@ const nextConfig = {
         remotePatterns: [
             {
                 protocol: "https",
-                hostname: "books-test-eight.vercel.app",
+                hostname: "res.cloudinary.com",
                 port: "",
                 pathname: "/**",
             },
         ],
-    }
+    },
+    experimental: {
+        optimizePackageImports: ['swiper/react', 'swiper/modules', 'framer-motion'],
+    },
 }
 
 module.exports = nextConfig

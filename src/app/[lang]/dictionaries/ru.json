@@ -1,0 +1,41 @@
+{
+    "navBar": {
+        "home": "главная",
+        "categories": "категории",
+        "authors": "авторы",
+        "reviews": "отзывы",
+        "trending": "тренды",
+        "search": "поиск"
+    },
+    "home": {
+        "header": {
+            "title": "найди свое следующее приключение",
+            "descruption": "исследуй миллионы книг от бестселлеров и новых авторов.",
+            "publish_your_own_book": "опубликуй свою книгу"
+        },
+        "slider": {
+            "suggest": "рекомендуемые книги"
+        },
+        "new_releases": "новые релизы",
+        "popular_authors": "популярные авторы",
+        "view_all": "посмотреть все",
+        "books": "книги"
+    },
+    "book_details": {
+        "about": "о книге",
+        "author": "автор",
+        "views": "просмотры",
+        "language": "язык",
+        "downloads": "загрузки",
+        "type": "тип",
+        "size": "размер",
+        "pages":"страницы",
+        "published_date": "дата публикации",
+        "about_the_author": "об авторе",
+        "reviews": "отзывы",
+        "write_a_review": "написать отзыв",
+        "load_more_reviews": "загрузить больше отзывов",
+        "read": "читать сейчас",
+        "add_to_wishlist": "добавить в список желаемого"
+    }
+}

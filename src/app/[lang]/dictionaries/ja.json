@@ -1,0 +1,41 @@
+{
+    "navBar": {
+        "home": "ホーム",
+        "categories": "カテゴリ",
+        "authors": "著者",
+        "reviews": "レビュー",
+        "trending": "トレンド",
+        "search": "検索"
+    },
+    "home": {
+        "header": {
+            "title": "次の冒険を見つけよう",
+            "descruption": "ベストセラー作家と新進気鋭の声による数百万冊の本を探索しよう。",
+            "publish_your_own_book": "自分の本を出版する"
+        },
+        "slider": {
+            "suggest": "おすすめの本"
+        },
+        "new_releases": "新刊",
+        "popular_authors": "人気著者",
+        "view_all": "すべて表示",
+        "books": "本"
+    },
+    "book_details": {
+        "about": "本について",
+        "author": "著者",
+        "views": "閲覧数",
+        "language": "言語",
+        "downloads": "ダウンロード",
+        "type": "タイプ",
+        "size": "サイズ",
+        "pages":"ページ",
+        "published_date": "出版日",
+        "about_the_author": "著者について",
+        "reviews": "レビュー",
+        "write_a_review": "レビューを書く",
+        "load_more_reviews": "レビューをさらに読み込む",
+        "read": "今すぐ読む",
+        "add_to_wishlist": "ウィッシュリストに追加"
+    }
+}

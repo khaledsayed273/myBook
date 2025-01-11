@@ -1,0 +1,41 @@
+{
+    "navBar": {
+        "home": "الصفحة الرئيسية",
+        "categories": "الفئات",
+        "authors": "المؤلفين",
+        "reviews": "المراجعات",
+        "trending": "الشائع",
+        "search": "بحث"
+    },
+    "home": {
+        "header": {
+            "title": "ابحث عن مغامرتك التالية",
+            "descruption": "استكشف ملايين الكتب من المؤلفين الأكثر مبيعًا والأصوات الناشئة.",
+            "publish_your_own_book": "انشر كتابك الخاص"
+        },
+        "slider": {
+            "suggest": "الكتب المقترحة"
+        },
+        "new_releases": "الإصدارات الجديدة",
+        "popular_authors": "المؤلفين الشهيرين",
+        "view_all": "عرض الكل",
+        "books": "كتب"
+    },
+    "book_details": {
+        "about": "عن الكتاب",
+        "author": "المؤلف",
+        "views": "المشاهدات",
+        "language": "اللغة",
+        "downloads": "التنزيلات",
+        "type": "النوع",
+        "size": "الحجم",
+        "pages": "عدد الصفحات",
+        "published_date": "تاريخ النشر",
+        "about_the_author": "عن المؤلف",
+        "reviews": "المراجعات",
+        "write_a_review": "اكتب مراجعة",
+        "load_more_reviews": "تحميل المزيد من المراجعات",
+        "read": "اقرأ الآن",
+        "add_to_wishlist": "أضف إلى قائمة الرغبات"
+    }
+}

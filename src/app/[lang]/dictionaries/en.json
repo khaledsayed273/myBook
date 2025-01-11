@@ -1,0 +1,41 @@
+{
+    "navBar": {
+        "home": "home",
+        "categories": "categories",
+        "authors": "authors",
+        "reviews": "reviews",
+        "trending": "trending",
+        "search": "search"
+    },
+    "home": {
+        "header": {
+            "title": "find your next adventure",
+            "descruption": "explore millions of books from bestselling authors and emerging voices.",
+            "publish_your_own_book": "publish your own book"
+        },
+        "slider": {
+            "suggest": "suggested books"
+        },
+        "new_releases": "new releases",
+        "popular_authors": "popular authors",
+        "view_all": "view all",
+        "books": "books"
+    },
+    "book_details": {
+        "about": "about the book",
+        "author": "author",
+        "views": "views",
+        "language": "language",
+        "downloads": "downloads",
+        "type": "type",
+        "size": "size",
+        "pages":"pages",
+        "published_date": "published date",
+        "about_the_author": "about the author",
+        "reviews": "reviews",
+        "write_a_review": "write a review",
+        "load_more_reviews": "load more reviews",
+        "read": "read now",
+        "add_to_wishlist": "add to wishlist"
+    }
+}

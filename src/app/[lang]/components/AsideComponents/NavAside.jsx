@@ -1,10 +1,12 @@
 "use client"
 import { MenuItem, Select } from '@mui/material'
 import React, { useState, useEffect } from 'react'
-import { useRouter, useSearchParams } from 'next/navigation'
+import { useParams, useRouter, useSearchParams } from 'next/navigation'
 import { useCallback } from 'react'
 
-function NavAside({ baseUrl }) {
+function NavAside() {
+    const params = useParams()
+    const {lang} = params
     const [type, setType] = useState(" ")
 
     const [collapse, setCollapse] = useState(false)
@@ -21,12 +23,16 @@ function NavAside({ baseUrl }) {
     const [status, setStatus] = useState(false)
 
     const getAllBooks = async () => {
-        const req = await fetch(`${baseUrl}/api/v1/all-types`).then(res =>
+        const req = await fetch(`${process.env.NEXT_PUBLIC_BASEURL}/api/v1/all-types`, {
+            headers: {
+                "api-key": process.env.NEXT_PUBLIC_API_KEY,
+                lang
+            },
+        }).then(res =>
             res.json()
         ).then((res => {
             setStatus(res.status)
             setAllTypes(res.data)
-
         })).catch(e =>
             e
         );
@@ -42,12 +48,12 @@ function NavAside({ baseUrl }) {
 
     const handleSetParams = useCallback((type) => {
         const query = new URLSearchParams(searchParams)
-        query.set("category" , type)
+        query.set("category", type)
         router.push(`?category=${query.get("category")}`)
     }, [])
 
     return (
-        <nav className='flex items-center justify-between xl:px-16 mt-32'>
+        <nav className='flex items-center justify-between  mt-32'>
             {status ? (
                 <Select
                     value={type}
@@ -57,12 +63,10 @@ function NavAside({ baseUrl }) {
                 >
                     <MenuItem onClick={() => router.push(`/`)} className='capitalize font-semibold' value={" "}>الكل</MenuItem>
                     {allTypes?.map((item => (
-
                         <MenuItem onClick={() => handleSetParams(item.type)} key={item._id} className='capitalize font-semibold' value={`${item.type}`}>{item.type}</MenuItem>
                     )))}
                 </Select>
             ) : (<div></div>)}
-
             <div className='relative'>
                 <button className='text-white' onClick={handleCollapse}>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
