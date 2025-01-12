@@ -8,7 +8,7 @@ import Image from 'next/image';
 function CartComponent() {
     const isCartEmpty = true
     const totalPrice = 20
-    const cartsData = [{id:1}, {id:2}]
+    const cartsData = [{ id: 1 }, { id: 2 }]
 
     const CartIcon = memo(() => (
         <svg className='text-white' width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -88,7 +88,7 @@ function CartComponent() {
                 className='mt-3'
                 sx={{
                     ".MuiPaper-root": {
-                        background:  "#050505",
+                        background: "#050505",
                         boxShadow: "1px 1px 20px 1px #0a0909"
 
                     }
@@ -100,6 +100,8 @@ function CartComponent() {
                             <div key={item.id} className="flex border border-gray-500 rounded-xl  items-center  gap-4 p-2 mb-5">
                                 <div className='flex flex-1 items-center'>
                                     <Image
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+
                                         width={60}
                                         height={60}
                                         alt="tania andrew"

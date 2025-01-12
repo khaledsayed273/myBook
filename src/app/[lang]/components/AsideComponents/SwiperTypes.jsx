@@ -79,7 +79,12 @@ function SwiperTypes({ categories, translate }) {
                                 <motion.div className="w-[300px]" whileHover={{ y: -5 }} whileTap={{ scale: 0.98 }}>
                                     <Link className='group ' href={`/all`}>
                                         <div className='w-full overflow-hidden rounded-lg h-[250px] relative'>
-                                            <Image src={item.image} fill alt={`${item.type}`} />
+                                            <Image
+                                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                                src={item.image}
+                                                fill
+                                                alt={`${item.type}`}
+                                            />
                                             <div className='absolute p-2 flex justify-end flex-col text-white top-0 bottom-0 left-0 right-0 bg-black/60 transition-all group-hover:bg-black/0'>
                                                 <h3 className='capitalize text-lg font-semibold'>{item.type}</h3>
                                                 <h4 className='capitalize text-sm font-semibold mt-2'>{item.bookCount} {translate.home.books}</h4>

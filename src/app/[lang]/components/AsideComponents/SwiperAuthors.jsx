@@ -119,7 +119,12 @@ function SwiperAuthors({ translate }) {
                                     <Link className='group flex flex-col' href={`/all`}>
                                         <div className='w-[150px] overflow-hidden rounded-full h-[150px] relative'>
                                             <div className='relative w-full h-full'>
-                                                <Image src={item.image} fill alt={`${item.name}`} />
+                                                <Image
+                                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                                    src={item.image}
+                                                    fill
+                                                    alt={`${item.name}`}
+                                                />
                                             </div>
                                             <div className='absolute p-2 flex justify-center items-center text-white top-0 bottom-0 left-0 right-0 bg-black/0 transition-all group-hover:bg-black/60'>
                                                 <h3 className='capitalize text-lg font-semibold transition-all opacity-0 group-hover:opacity-100'>{item.name}</h3>

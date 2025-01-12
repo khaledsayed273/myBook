@@ -74,7 +74,12 @@ async function bookOne({ params }) {
           <div className='grid text-white max-[1024px]:justify-items-center  lg:grid-cols-3 2xl:grid-cols-4 my-10 md:my-16 gap-5 md:gap-10'>
             <div className='bg-card max-[377px]:w-[320px] max-[1024px]:w-[350px] p-5 rounded-lg h-[550px]'>
               <div className='relative h-[350px] w-full overflow-hidden rounded-lg lg:w-full mb-7'>
-                <Image src={book?.image} fill alt='image' />
+                <Image
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  src={book?.image}
+                  fill
+                  alt='image'
+                />
               </div>
               <button className='bg-blue mb-4 w-full py-2 capitalize font-semibold text-sm md:text-base  rounded-md hover:opacity-70'>{translate.book_details.read}</button>
               <button className='bg-zinc-700  w-full py-2 capitalize font-semibold text-sm md:text-base  rounded-md hover:opacity-70'>{translate.book_details.add_to_wishlist}</button>
@@ -130,7 +135,13 @@ async function bookOne({ params }) {
                 <div className='flex items-center mt-5'>
                   <Link className='flex items-center' href={`/${lang}/authors/${book.author_id}`} >
                     <div className='w-20 h-20 flex-none overflow-hidden rounded-full relative me-3'>
-                      <Image src={book.author_image} objectFit='cover' fill alt={book.author_name} />
+                      <Image
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        src={book.author_image}
+                        style={{objectFit: "cover"}}
+                        fill
+                        alt={book.author_name}
+                      />
                     </div>
                     <h3 className='capitalize font-semibold text-xl md:text-2xl'>{book.author_name}</h3>
                   </Link>

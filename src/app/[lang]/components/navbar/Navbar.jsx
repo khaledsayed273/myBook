@@ -59,7 +59,7 @@ function Navbar({ translate }) {
         };
     }, [open]);
 
-
+    
     const handleSearch = (value) => {
         setSearch(value);
     }
@@ -69,16 +69,16 @@ function Navbar({ translate }) {
 
     return (
         <nav className='bg-[#0a0a0a] py-5 z-50 sticky top-0 border-b-blue border-b-2'>
-            <div className="container mx-auto flex justify-between items-center flex-wrap px-2 xl:px-0">
+            <div className="container mx-auto flex justify-between items-center flex-wrap px-2 lg:px-4 xl:px-0 2xl:px-0">
                 <div className='flex items-center'>
-                    <Link className='flex items-center me-4' href={`/${lang}`}>
+                    <Link onClick={() => setOpen(false)} className='flex items-center me-4' href={`/${lang}`}>
                         <span className='font-bold text-2xl text-blue text-nowrap'>Book Verse</span>
                     </Link>
                     <div className={`lg:bg-none bg-[#0a0a0a] justify-center absolute lg:static start-0 w-full -z-10 lg:z-0 transition-all duration-500  top-[76px] bottom-0 h-[93vh] lg:h-full  ${open ? "flex  lg:mt-0 " : "flex start-full lg:opacity-100"}`}>
                         <ul className='flex justify-center flex-col lg:flex-row'>
                             {ul.map((item) => (
                                 <li className='lg:mx-4 my-8  text-center lg:my-0 text-white hover:text-white/50 transition-all font-semibold ' key={item.id}>
-                                    <Link className='capitalize' href={item.path}>
+                                    <Link onClick={() => setOpen(false)} className='capitalize' href={item.path}>
                                         {item.name}
                                     </Link>
                                 </li>

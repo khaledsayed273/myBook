@@ -7,8 +7,8 @@ export function BookCard({ book, lang }) {
     return (
         <motion.div className="w-[300px]" whileHover={{ y: -5 }} whileTap={{ scale: 0.98 }}>
             <div className="rounded-lg overflow-hidden border border-gray-800 hover:shadow-xl transition-shadow duration-300 group">
-                <div className="relative h-[400px] w-full overflow-hidden">
-                    <Link href={`/${lang}/books/${book._id}`}>
+                <div className="relative">
+                    <Link className='relative block h-[400px] w-full overflow-hidden' href={`/${lang}/books/${book._id}`}>
                         <Image
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                             src={book.image}
@@ -25,7 +25,7 @@ export function BookCard({ book, lang }) {
                         <div className='relative w-8 h-8 overflow-hidden rounded-full border border-gray-800'>
                             <Image
                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                objectFit='cover'
+                                style={{objectFit: "cover"}}
                                 src={book.author_image} fill alt={book.author_name} />
                         </div>
                         <span className='ms-2'>{book.author_name}</span>
